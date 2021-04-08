@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+</head>
+<body>
+    <h1>Todo:</h1>
+    <span>Things left to do: <%= itemsLeft %></span>
+    <ul>
+    <% for(let i = 0; i < todoItem.length; i++) { %>
+        <li class='todoItem'>
+            <% if(todoItem[i].completed === true){ %>
+            <span class='checkedItem'><%= todoItem[i].todo %></span>
+            <button class='unCheckBtn'>Uncheck</button>
+            <% }else{ %>
+            <span><%= todoItem[i].todo %></span>
+            <button class='checkBtn'>Check</button>
+            <% } %>
+            
+            <button class='delBtn'>Delete</button>
+        </li>
+
+   <% } %>
+    </ul>
+
+    
+
+    <form action="/createTodo" method="post">
+        <input type="text" placeholder="Enter something to do" name="todoItem">
+        <input type="submit">
+    </form>
+    <script src="js/main.js"></script>
+</body>
+</html>
